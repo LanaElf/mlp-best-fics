@@ -1,6 +1,6 @@
  <template>
-	<header 
-		class="header" 
+	<header
+		class="header"
 		:class="{
 			fluttershyHeader: this.$store.state.themes[0].isActive,
 			twilightHeader: this.$store.state.themes[1].isActive,
@@ -10,21 +10,20 @@
 	>
 		<div class="themeSwitch, component-container" @click="showOptions = !showOptions">
 			<div class="component__select" >
-    		<div id="text" class="component__select--name">Theme</div>		
+    		<div id="text" class="component__select--name">Тема</div>
 				<ul class="component__select-options" v-if="showOptions">
 					<li class="select--option" v-for="theme in this.$store.state.themes" :style="theme.buttonStyle" >
     				<label>
     					<input
-							:value="theme.value" 
-							:key="theme.id" 
+							:value="theme.value"
+							:key="theme.id"
 							@click="themeActivate(theme)"
-							
 							class="theme-btn"
-							type="radio"  
-							name="list" 
+							type="radio"
+							name="list"
 							id="theme.id"
 							/>
-    						{{ theme.name }} 
+    						{{ theme.name }}
     				</label>
     			</li>
 				</ul>
@@ -33,7 +32,7 @@
 		<div class="title">
 			<!--<div class="title-image"></div>-->
 			<div class="title-mlp">MLP</div>
-			<div class="title-sub">best fics</div>
+			<div class="title-sub">лучшие фанфики</div>
 		</div>
 		<div class="header-image"></div>
 
@@ -44,7 +43,7 @@
 			celestia_library_link: $store.state.themes[2].isActive,
 			luna_library_link: $store.state.themes[3].isActive,
 		}">
-			<h2><a href="/">Library</a></h2>
+			<h2><a href="/">Библиотека</a></h2>
 	</div>
 </template>
 
@@ -54,47 +53,44 @@
 	export default {
 		name: 'HeaderView',
 
-		data(){
+		data() {
 			return{
 				selectedTheme3: {},
 				showOptions: false,
-
-			} 
+			}
 		},
-		methods:{
-			
+
+		methods: {
+
 			themeActivate(theme){
 				theme.isActive = true;
 				this.$store.state.themes.forEach(function(item, i, arr) {
 					if (item.id !== theme.id){
 						item.isActive = false;
-					}					
+					}
 				});
 				this.saveThemesState();
-				
-				console.log(JSON.parse(localStorage.stateOfThemes))
-				
+
 			},
 			saveThemesState(){
       			const parsedThemes = JSON.stringify(this.$store.state.themes);
-      			localStorage.setItem('stateOfThemes', parsedThemes);     	
+      			localStorage.setItem('stateOfThemes', parsedThemes);
     		},
 		},
-		mounted(){
+
+		mounted() {
 			 if(localStorage.getItem('stateOfThemes')){
         		this.$store.state.themes = JSON.parse(localStorage.stateOfThemes);
      		 };
 		},
-		
     }
-
 </script>
 
 <style lang="scss">
 @import "@/variables.scss";
 
 
-	.header{ 	
+	.header{
 		height: 550px;
 		display: grid;
 		justify-items: center;
@@ -105,7 +101,7 @@
 		padding-bottom: 10px;
 		font-family: 'celestia';
 		color: white;
-		
+
 	}
 	.title-mlp{
 		font-size: 7em;
@@ -119,11 +115,11 @@
   		-webkit-animation: rainbow 10s ease infinite;
   		animation: rainbow 10s ease infinite;
 		  font-family: 'celestia';
-  		
-		
+
+
 	}
 	.title-sub{
-		font-size: 2.6em;
+		font-size: 2em;
 		color: #fff;
 		text-decoration: none;
 		background: linear-gradient(150deg, #f85679, #f76f7f, #fffd75, #75ffdd, #75e1ff, #757cff, #c174fc, #fa74fc);
@@ -133,7 +129,7 @@
   		-webkit-animation: rainbow 10s ease infinite;
   		animation: rainbow 10s ease infinite;
 		font-family: 'celestia';
-  		
+
 	}
 	.title-image{
 		width: 1000px;
@@ -156,7 +152,7 @@
 		background-image: url('@/arts/Snowpity_Time_Luna.png');
 	}
 
-	
+
 
 	.library_link{
 		z-index: 2;
@@ -173,7 +169,7 @@
 		font-size: 2.5em;
 		line-height: 1.7em;
 
-		
+
 	}
 
 	.library_link>h2:hover{
@@ -190,14 +186,14 @@
   		animation: rainbow 10s ease infinite;*/
   		font-size: 1em;
   		line-height: 1em;
-  		
+
 	}
 	@-webkit-keyframes rainbow {
   0% { background-position: 0% 50% }
   50% { background-position: 100% 50% }
   100% { background-position: 0% 50% }
 }
- 
+
 @keyframes rainbow {
   0% { background-position: 0% 50% }
   50% { background-position: 100% 50% }
@@ -238,7 +234,7 @@
 	max-width: 100vw;
 	background-size: contain;
 	background-position: center;
-  background-repeat: no-repeat;
+	background-repeat: no-repeat;
 }
 
 .fluttershyHeader div.header-image{
@@ -287,7 +283,7 @@
    display: grid;
    max-width: 500px;
    font-weight: bolder;
-   
+
 .component__select--name{
 	font-size: 1.2em;
 }
@@ -343,7 +339,7 @@
  .select--option:nth-child(2n) {
    background-color: #ffffff;
  }
- 
+
  .select--option input{
    display: none;
  }

@@ -1,16 +1,15 @@
 <template>
 
-	<footer 
+	<footer
 		:class="{
 			fluttershyFooter: $store.state.themes[0].isActive,
 			twilightFooter: $store.state.themes[1].isActive,
 			celestiaFooter: $store.state.themes[2].isActive,
 			lunaFooter: $store.state.themes[3].isActive,
 		}">
-		<div class="contacts">		
+		<div class="contacts">
 			<a href="https://t.me/elf_lana" target="_blank">@elf_lana</a>
-			<h4>Inspired by amazing and benevolent brony community.</h4>
-			<h4>Sources:</h4>
+			<h4>Источники:</h4>
 			<a href="https://ponyfiction.org" target="_blank">ponyfiction.org</a>
 			<a href="https://everypony.ru/" target="_blank">everypony.ru</a>
 			<a href="https://www.rulit.me/" target="_blank">www.rulit.me</a>
@@ -24,7 +23,7 @@
 	export default{
 		name: "footerView",
 
-		
+
 	}
 </script>
 
@@ -32,19 +31,19 @@
 @import "@/variables.scss";
 
 	footer{
-		height: 300px; 
-		
+		height: 300px;
+
 		display: grid;
-		align-content: center; 
+		align-content: center;
 		padding-bottom: 20px;
 	}
 	footer a{
 		text-decoration: none;
 		color: $fluttershyThemeColor2;
 		font-size: 20px;
-		text-shadow:  0px 2px 0px white, -2px 0px 0px white, 2px 0px 0px white,  0px -2px 0px white,  2px -2px 0px white,  2px 2px 0px white,  -2px -2px 0px white,  -2px 2px 0px white;	
+		text-shadow:  0px 2px 0px white, -2px 0px 0px white, 2px 0px 0px white,  0px -2px 0px white,  2px -2px 0px white,  2px 2px 0px white,  -2px -2px 0px white,  -2px 2px 0px white;
 		display: grid;
-		padding: 5px;	
+		padding: 5px;
 
 	}
 	.twilightFooter a{
